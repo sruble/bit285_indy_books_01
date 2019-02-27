@@ -23,13 +23,7 @@ namespace IndyBooks.Controllers
         {
             IQueryable<Book> foundBooks = _db.Books; // start with entire collection
 
-            //Return all books, if the search is empty
-            if (search == null)
-            {
-                return View("SearchResults", foundBooks);
-            }
-
-            //Otherwise, check each field and modify the collection accordingly
+            //Filter the collection using each non-empty Field as noted
             if (search.Title != null)
             {
                 //Filter the collection by Title which "contains" string 
